@@ -1,0 +1,28 @@
+#wrapper {
+  background-color: lightblue;
+  height: 100%;
+}
+
+#container {
+  height: calc( 100% - 64px);
+}
+
+/*
+#top {
+  background-color: lightcoral;
+  margin: 4px;
+}
+
+#bottom {
+  background-color: lightgreen;
+  margin: 0 4px 4px 0;
+}
+*/
+
+#dining {
+  overflow-y: auto;
+}
+
+#dining md-card {
+  min-height: 200px;
+}
