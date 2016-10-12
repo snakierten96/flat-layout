@@ -1,5 +1,9 @@
+html, body {
+  font-size: 14px;
+}
+
 #wrapper {
-  background-color: lightblue;
+  background-color: whitesmoke;
   height: 100%;
 }
 
@@ -25,4 +29,16 @@
 
 #dining md-card {
   min-height: 200px;
+}
+
+.md-button {
+  text-transform: none;
+}
+
+#lineup md-card-actions>div {
+  display: table-row;
+}
+
+#lineup md-card-actions>div * {
+  display: table-cell;
 }

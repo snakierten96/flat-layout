@@ -29,10 +29,12 @@
     <div id="container" layout="column">
       <div id="top" layout="row" flex="70">
         <div flex="33">
-          <md-card>
+          <md-card id="lineup">
             <md-card-header>
               <md-card-header-text>
-                <md-headline>Lineup</md-headline>
+                <md-headline>
+                  Lineup
+                </md-headline>
               </md-card-header-text>
             </md-card-header>
             <md-card-content>
@@ -53,15 +55,17 @@
               </md-list>
             </md-card-content>
             <md-card-actions>
-              <md-input-container>
-                <label for="">Number of People</label>
-                <input type="number">
-              </md-input-container>
-              <md-input-container>
-                <label>Party Name</label>
-                <input type="text">
-              </md-input-container>
-              <md-button class="md-raised md-accent md-secondary">New Party</md-button>
+              <div layout="row">
+                <md-input-container>
+                  <label for="">Number of People</label>
+                  <input type="number">
+                </md-input-container>
+                <md-input-container>
+                  <label>Party Name</label>
+                  <input type="text">
+                </md-input-container>
+                <md-button class="md-raised md-accent md-secondary">New Party</md-button>
+              </div>
             </md-card-actions>
           </md-card>
         </div>
@@ -126,7 +130,7 @@
       .config(($mdThemingProvider) => {
         $mdThemingProvider.theme('default')
           .primaryPalette('teal')
-          .accentPalette('purple');
+          .accentPalette('purple', { default: '700' });
       })
       .controller('AppCtrl',($scope, $mdSidenav) => {
         $scope.toggleNav = function() { $mdSidenav('left').toggle(); };
