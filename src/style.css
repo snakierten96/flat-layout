@@ -8,20 +8,9 @@ html, body {
 }
 
 #container {
-  height: calc( 100% - 64px);
+  height: inherit;
+  height: calc( 100% - 64px); /* TODO: hack! fix */
 }
-
-/*
-#top {
-  background-color: lightcoral;
-  margin: 4px;
-}
-
-#bottom {
-  background-color: lightgreen;
-  margin: 0 4px 4px 0;
-}
-*/
 
 #dining {
   overflow-y: auto;
@@ -35,10 +24,18 @@ html, body {
   text-transform: none;
 }
 
-#lineup md-card-actions>div {
-  display: table-row;
+#lineup md-list-item {
+  border-bottom: 1px rgba(0,0,0,0.12) solid;
 }
 
-#lineup md-card-actions>div * {
-  display: table-cell;
+#lineup md-card-actions > div {
+  padding-left: 8px;
+}
+
+#lineup md-card-actions md-input-container {
+  margin: 0;
+}
+
+#lineup md-card-actions .md-button {
+  height: 36px;
 }
