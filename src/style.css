@@ -26,7 +26,7 @@ html, body {
 }
 
 #lineup md-card-content {
-  overflow-y: auto;  
+  overflow-y: auto;
 }
 
 
@@ -58,6 +58,7 @@ html, body {
 
 #dining table {
   width: 100%;
+  font-size: inherit;
 }
 
 #dining th {
@@ -71,6 +72,7 @@ html, body {
 
 #dining th .material-icons {
   display: inline;
+  color: inherit;
   font-size: inherit;
   font-weight: bold;
 }
