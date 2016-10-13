@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/style.css" type="text/css" />
 </head>
@@ -39,19 +39,10 @@
             </md-card-header>
             <md-card-content>
               <md-list>
-                <md-list-item ng-click="null">
+                <md-list-item ng-repeat="party in lineup" ng-click="null">
                   <div class="md-list-item-text" layout="row" flex>
-                    <span flex>2</span>
-                    <span flex>party</span>
-                  </div>
-                  <md-button class="md-icon-button md-secondary md-warn">
-                    <md-icon>close</md-icon>
-                  </md-button>
-                </md-list-item>
-                <md-list-item ng-click="null">
-                  <div class="md-list-item-text" layout="row" flex>
-                    <span flex>2</span>
-                    <span flex>another</span>
+                    <span flex>{{ party.numberOfPeople }}</span>
+                    <span flex>{{ party.partyName }}</span>
                   </div>
                   <md-button class="md-icon-button md-secondary md-warn">
                     <md-icon>close</md-icon>
@@ -76,7 +67,7 @@
         </div>
         <!-- tables -->
         <div id="dining" layout="row" layout-wrap flex="66">
-          <div flex="50" ng-repeat="index in [1,2,3,4,5,6]">
+          <div flex="50" ng-repeat="index in tables">
             <md-card>
               <md-card-header>
                 <md-card-header-text>
@@ -84,7 +75,33 @@
                 </md-card-header-text>
               </md-card-header>
               <md-card-content>
-                
+                <table ng-if="index == 2">
+                  <thead>
+                    <tr>
+                      <th>Desc</th>
+                      <th>Qty</th>
+                      <th>Stock</th>
+                      <th>
+                        <md-icon>add</md-icon>/<md-icon>remove</md-icon>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="menuItem in menu">
+                      <td>{{ menuItem.description }}</td>
+                      <td>0</td>
+                      <td>{{ menuItem.stock }}</td>
+                      <td>
+                        <md-button class="md-icon-button md-primary">
+                          <md-icon>add_circle</md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button md-primary">
+                          <md-icon>remove_circle</md-icon>
+                        </md-button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </md-card-content>
             </md-card>
           </div>
@@ -139,6 +156,47 @@
       })
       .controller('AppCtrl',['$scope','$mdSidenav',function($scope, $mdSidenav) {
         $scope.toggleNav = function() { $mdSidenav('left').toggle(); };
+   
+   
+        $scope.lineup = [
+          {
+            numberOfPeople: 2,
+            partyName: 'smith'
+          },
+          {
+            numberOfPeople: 2,
+            partyName: 'jones',
+          }
+        ];
+        
+        $scope.tables = [1,2,3,4,5,6];
+        
+        $scope.menu = [
+          {
+            menuId: 'pancake',
+            description: 'Stack of Pancakes',
+            stock: 50,
+            price: 1.99
+          },
+          {
+            menuId: 'fruitbowl',
+            description: 'Bowl of fresh fruit',
+            stock: 10,
+            price: 3.50
+          },
+          {
+            menuId: 'eggsbenny',
+            description: 'Eggs Benedict',
+            stock: 50,
+            price: 4.95
+          },
+          {
+            menuId: 'hashbrowns',
+            description: 'Crispy Golden Hashbrowns',
+            stock: 10,
+            price: 2.5
+          }
+        ];
       }]);
   </script>
   

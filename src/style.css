@@ -1,3 +1,5 @@
+/* App container styles */
+
 html, body {
   font-size: 14px;
 }
@@ -12,17 +14,21 @@ html, body {
   height: calc( 100% - 64px); /* TODO: hack! fix */
 }
 
-#dining {
-  overflow-y: auto;
-}
-
-#dining md-card {
-  min-height: 200px;
-}
-
 .md-button {
   text-transform: none;
 }
+
+/* Lineup Styles */
+
+
+#lineup {
+  max-height: 69%;
+}
+
+#lineup md-card-content {
+  overflow-y: auto;  
+}
+
 
 #lineup md-list-item {
   border-bottom: 1px rgba(0,0,0,0.12) solid;
@@ -38,4 +44,33 @@ html, body {
 
 #lineup md-card-actions .md-button {
   height: 36px;
+}
+
+/* Dining and tables */
+
+#dining {
+  overflow-y: auto;
+}
+
+#dining md-card {
+  min-height: 200px;
+}
+
+#dining table {
+  width: 100%;
+}
+
+#dining th {
+  text-align: left;
+}
+
+#dining thead th:last-of-type,
+#dining tbody td:last-of-type {
+  text-align: center;
+}
+
+#dining th .material-icons {
+  display: inline;
+  font-size: inherit;
+  font-weight: bold;
 }
